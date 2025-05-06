@@ -1,0 +1,9 @@
+For our final project, we built a functional evaporative cooling system—or a small swamp cooler—using the Arduino 2560 and a mix of sensors from our lab kits. 
+This system is designed to simulate how a real evaporative cooler works in dry climates: it pulls in hot air, passes it through some form of water, and cools the air as it evaporates. 
+This cooler goes through different operational states, responding to sensor inputs and user inputs. It monitors the water level in a place and switches to an ERROR state when the level 
+is too low. It also reads and displays the current temperature and humidity on an LCD screen using a sensor, refreshing one every minute. A fan turns on when the temperature gets too 
+high and turns off once it drops back below the threshold. The vent angle can be controlled by the user. A very important part of the system is the states. The cooler can switch between
+DISABLED, IDLE, RUNNING, and ERROR states based on button and sensor inputs. We used interrupts for the ON/OFF button. Every time the motor changes state, the timestamp is sent over the 
+Serial connection to a computer. The entire system was created with code that included minimal use of Arduino libraries and included GPIO, timers, interrupts, and ADC. This project is a 
+combination of embedded design concepts we learned throughout the semester: sensor interfacing, state machines, interrupts, real-time tracking, and actuator control—all pulled together 
+to create a swamp cooler.
