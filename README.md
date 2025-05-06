@@ -5,7 +5,7 @@ LCD: Brayton
 
 Circuit: Jack
 
-Code(w/ libraries): Alexadra
+Code(w/ libraries): Alexandra
 
 Temp sensor: Ryleigh
 
