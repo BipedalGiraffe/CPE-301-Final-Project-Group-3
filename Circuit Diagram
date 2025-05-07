@@ -1,2 +1,6 @@
 Tinkercad Link: https://www.tinkercad.com/things/kOFXM9LEmYD-glorious-gaaris/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=YtMtfIEFxedSxaaXt5EDFWCBNrQtQm7l4b2zpYiqTGE
 
+5/6/2025/5:22pm: Connected the base pin of the DC motor transistor to the same pin that turns on the blue led.
+Now when the blue led turns on, the DC motor should also turn on.
+
+Also wired all the required LCD pins.
