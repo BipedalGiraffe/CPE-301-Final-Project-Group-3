@@ -1,7 +1,7 @@
 #include <Stepper.h> // Include the header file
 #define STEPS 500
 // create an instance of the stepper class using the steps and pins
-Stepper stepper(STEPS, 8, 10, 9, 11);
+Stepper stepper(STEPS, 39, 43, 41, 45);
 int Pval = 0;
 int potVal = 0;
 void setup() {
