@@ -1,0 +1,75 @@
+#define RDA 0x80
+#define TBE 0x20  
+
+volatile unsigned char *hdd = (unsigned char*) 0x101;
+volatile unsigned char *gdd = (unsigned char*) 0x33;
+volatile unsigned char *edd = (unsigned char*) 0x2D;
+volatile unsigned char *porth = (unsigned char*) 0x102;
+volatile unsigned char *portg = (unsigned char*) 0x34;
+volatile unsigned char *porte = (unsigned char*) 0x2E;
+
+volatile unsigned char *myUCSR0A = (unsigned char *)0x00C0;
+volatile unsigned char *myUCSR0B = (unsigned char *)0x00C1;
+volatile unsigned char *myUCSR0C = (unsigned char *)0x00C2;
+volatile unsigned int  *myUBRR0  = (unsigned int *) 0x00C4;
+volatile unsigned char *myUDR0   = (unsigned char *)0x00C6;
+
+void setup() {
+  // setup the UART
+  U0init(9600);
+
+*hdd = *hdd |0x18;
+*gdd = *gdd |0x20;
+*edd = *edd |0x38;
+
+}
+void loop() {
+//add case statement for idle, running, 
+}
+
+char disabled(){
+//red light is PE5
+//1 is output
+//0 is input
+//motor is ph3
+  *porth = *porth & 0xF7;
+  *porte = *porte | 0x08;
+
+}
+char idle (){
+  *porth = *porth & 0xF7;
+
+}
+bool pullbutton(){
+
+
+}
+
+
+
+
+
+
+
+
+//stuff to read and write
+void U0init(int U0baud)
+{
+ unsigned long FCPU = 16000000;
+ unsigned int tbaud;
+ tbaud = (FCPU / 16 / U0baud - 1);
+ // Same as (FCPU / (16 * U0baud)) - 1;
+ *myUCSR0A = 0x20;
+ *myUCSR0B = 0x18;
+ *myUCSR0C = 0x06;
+ *myUBRR0  = tbaud;
+}
+unsigned char U0kbhit()
+{
+  return *myUCSR0A & RDA;
+}
+void U0putchar(unsigned char U0pdata)
+{
+  while((*myUCSR0A & TBE)==0);
+  *myUDR0 = U0pdata;
+}
