@@ -24,21 +24,28 @@ void setup() {
 
 }
 void loop() {
-//add case statement for idle, running, 
+//add case statement for idle, running, etc.
 }
 
 char disabled(){
-//red light is PE5
+//red light is PE4
 //1 is output
 //0 is input
 //motor is ph3
-  *porth = *porth & 0xF7;
-  *porte = *porte | 0x08;
+//
+  *porth = *porth & 0xF7; //turn off fan
+  *porte = *porte | 0x08; //turn on red light
 
 }
 char idle (){
-  *porth = *porth & 0xF7;
-
+  *porth = *porth & 0xF7; //turn off fan
+//water levels monitored (water level to 
+//yellow and green light are on 
+//exact time stamp on serial and updates 
+}
+char running () {
+*porth + *porth | 0x08; //turn on red light 
+//
 }
 bool pullbutton(){
 
