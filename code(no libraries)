@@ -78,6 +78,12 @@ void setup() {
 
 }
 void loop() { 
+potVal = map(analogRead(A0),0,1024,0,500);
+if (potVal>Pval)
+  stepper.step(5);
+if (potVal<Pval)
+  stepper.step(-5);
+Pval = potVal;
 //add case statement for idle, running, etc. 
   switch (mode) {
     case 0:
