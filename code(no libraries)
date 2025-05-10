@@ -150,12 +150,14 @@ void idle (){
   *porth = *porth & 0xF7; //turn off fan
   *porte = *porte | 0x08; //turn on green light 
   char i = 0;
+  lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("temp= ");
   lcd.setCursor(5,0);
   lcd.print(temp);
   lcd.setCursor(0,1);
-  lcd.print(time);
+  lcd.print(rtc.hour());
+  lcd.print(rtc.minute());
   while (mode==2){
   unsigned int waterlvl = adc_read(0);
   unsigned int temp = Environment.readTemperature(2);
