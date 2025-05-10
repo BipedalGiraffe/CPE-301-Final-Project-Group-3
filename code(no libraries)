@@ -41,6 +41,9 @@ volatile unsigned char *portB =    (unsigned char *) 0x25;
 unsigned char* my_EIMSK = (unsigned char*) 0x3D;
 unsigned char* my_EICRB = (unsigned char*) 0x6A;
 
+Stepper stepper(STEPS, 39, 43, 41, 45);
+int Pval = 0;
+int potVal = 0;
 bool on = 0;  //for button
 char mode = 0; //for case switch
 int val = 0; //for water sensor 
