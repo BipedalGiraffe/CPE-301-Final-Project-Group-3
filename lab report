@@ -1,9 +1,83 @@
-For our final project, we built a functional evaporative cooling system—or a small swamp cooler—using the Arduino 2560 and a mix of sensors from our lab kits. 
-This system is designed to simulate how a real evaporative cooler works in dry climates: it pulls in hot air, passes it through some form of water, and cools the air as it evaporates. 
-This cooler goes through different operational states, responding to sensor inputs and user inputs. It monitors the water level in a place and switches to an ERROR state when the level 
-is too low. It also reads and displays the current temperature and humidity on an LCD screen using a sensor, refreshing one every minute. A fan turns on when the temperature gets too 
-high and turns off once it drops back below the threshold. The vent angle can be controlled by the user. A very important part of the system is the states. The cooler can switch between
-DISABLED, IDLE, RUNNING, and ERROR states based on button and sensor inputs. We used interrupts for the ON/OFF button. Every time the motor changes state, the timestamp is sent over the 
-Serial connection to a computer. The entire system was created with code that included minimal use of Arduino libraries and included GPIO, timers, interrupts, and ADC. This project is a 
-combination of embedded design concepts we learned throughout the semester: sensor interfacing, state machines, interrupts, real-time tracking, and actuator control—all pulled together 
-to create a swamp cooler.
+
+Final Project Lab Report
+
+
+Due May 9
+
+
+Alexandra Cornell
+Brayton Arthur
+Jack Bagnulo
+Ryleigh Romero
+
+
+
+
+
+
+
+
+GitHub Link:
+
+
+
+Video Link:
+
+
+
+
+
+
+
+
+
+
+
+
+Project Description:
+Our final project is a swamp cooler system built using the Arduino 2560 and components from the lab kit. The cooler monitors air temperature, humidity, and water level. It then uses this information and controls a fan motor to cool air through evaporation. A DHT11 sensor provides temperature and humidity readings, which are shown on an LCD screen and updated once every minute. A water level sensor ensures there’s enough water stored. If there is not sufficient water, the system enters a state of error and shuts the fan off. The cooler has multiple states, which include disabled, idle, and running, as well as the error state. These are each defined by a different LED color. Disabled is yellow, idle is green, running is blue, and red is for error.
+The user can start or stop the system with push buttons. The disabled state is entered using an interrupt. While the system is on, the fan will turn on when the temperature goes above a set value and turn off when the temperature drops back down. Then, the system will go to idle. The vent direction can be changed, and to do that, we are using a stepper motor, which is controlled by a potentiometer. Any changes to its position are logged by the real-time clock module. The LCD keeps updating with temperature and humidity readings every minute, and it will also show error messages if any error occurs. If the fan turns on or off or the states change, the computer will receive a notice. This helps with tracking everything that’s happening in the system.
+Component Details:
+Arduino 2560 – Main controller for all system operations
+Water Level Sensor – Detects water levels; can trigger error state
+DHT11 Sensor – Measures air temperature and humidity
+LCD Display – Displays temp, humidity, error messages
+DC Motor, Fan Blade – Blows air to act as a cooling fan
+Stepper Motor – Adjusts output vent direction
+Potentiometer– Allows user to adjust vent direction
+Serial Connect – Sends event logs to computer
+Yellow LED – Indicates disabled state
+Green LED – Indicates idle state
+Red LED – Indicates error state
+Blue LED – Indicates running state
+Resistors– Limit current to prevent damage, used for LED
+Start Button– Enables system
+Stop Button – Disables system
+Reset Button – Clears error if issue is fixed
+Breadboard & Jumper Wires – Build circuit 
+4. Circuit Image:
+◦ Attach a clear, full-image view of your cooler circuit.
+Schematic Diagram (Mandatory):
+◦ Include a schematic diagram of your cooler’s circuit.
+◦ You can use a block diagram to illustrate the pin connections between
+components. The goal is to provide a clear visual representation of your
+entire circuit.
+◦ For drawing the schematic, you may use tools like Google Draw, CirKit
+Designer (https://www.cirkitstudio.com/ ) (recommended, free), or any
+platform you're comfortable with.
+◦ If you face difficulty creating a schematic, you can arrange the component
+images and show the wire connections instead.
+◦ Additionally, include links to relevant specification sheets for the
+components used.
+6. System Demonstration:
+◦ Add pictures of your final system.
+◦ Include a link to a video of your system in operation.
+7. Submission Links:
+◦ You can include your GitHub and video link directly in your report or
+upload everything to your GitHub and submit the link on Canvas.
+◦ Ensure your GitHub repository is set to public so it can be accessed for
+evaluation.
+◦ Additionally, include your GitHub link as a comment in your Canvas
+Submission.
+
+
