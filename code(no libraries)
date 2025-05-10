@@ -49,6 +49,7 @@ volatile unsigned char *portB =    (unsigned char *) 0x25;
 unsigned char* my_EIMSK = (unsigned char*) 0x3D;
 unsigned char* my_EICRB = (unsigned char*) 0x6A;
 
+
 Stepper stepper(STEPS, 39, 43, 41, 45);
 int Pval = 0;
 int potVal = 0;
@@ -69,7 +70,7 @@ void setup() {
   *edd = *edd & 0xEF;
   *porte = *porte | 0x10; 
 
-
+URTCLIB_WIRE.begin();
 
   // setup the UART
   U0init(9600);
