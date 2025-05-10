@@ -2,15 +2,12 @@
 #define sensorPower 7
 #define sensorPin A0
 
+
 // Value for storing water level
 int val = 0;
 
 void setup() {
-  // Set D7 as an OUTPUT
-  pinMode(sensorPower, OUTPUT); //replace with ddr for sensor pin and set to 1
-
-  // Set to LOW so no power flows through the sensor
-  digitalWrite(sensorPower, LOW);
+  
 
   Serial.begin(9600);
 }
@@ -24,7 +21,6 @@ void loop() {
 
 //This is a function used to get the reading
 int readSensor() {
-  digitalWrite(sensorPower, HIGH);  // replace with the address for the sensor
   delay(10);                        // wait 10 milliseconds
   val = analogRead(sensorPin);      // replace with get function for analog pin
   digitalWrite(sensorPower, LOW);   // replace with address off 
