@@ -5,6 +5,13 @@
 #include <LiquidCrystal.h>
 #include <time.h>
 #include <Stepper.h> // Include the header file
+#include "uRTCLib.h"
+
+// uRTCLib rtc;
+uRTCLib rtc(0x68);
+
+char daysOfTheWeek[7][12] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
 
 #define STEPS 500
 #define RDA 0x80
