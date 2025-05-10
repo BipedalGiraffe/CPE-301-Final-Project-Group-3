@@ -1,3 +1,4 @@
+//Uses example code from Arduino
 #include <Stepper.h> // Include the header file
 #define STEPS 500
 // create an instance of the stepper class using the steps and pins
