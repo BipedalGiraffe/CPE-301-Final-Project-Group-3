@@ -96,8 +96,9 @@ void loop() {
     break;
 
     case 3: //error
-      lcd.setCursor (1,1);
-      lcd.write('water lvl is too low');
+      lcd.clear();
+      lcd.setCursor(0,1);
+      lcd.print('waterlvltoolow');
     break;
 
     default:
@@ -126,7 +127,7 @@ void idle (){
   *porth = *porth & 0xF7; //turn off fan
   *porte = *porte | 0x08; //turn on green light 
   char i = 0;
-  //lcd.write (Eviroment.readTemperature);
+  //lcd.print(Eviroment.readTemperature);
   while (mode==2){
   unsigned int waterlvl = adc_read(0);
   unsigned int temp = Environment.readTemperature(2);
@@ -155,8 +156,9 @@ void idle (){
   *myTIFR1 |= 0x01;
   i+=1;
   if (i==6000){
-    lcd.setCursor(1, 1);
-    lcd.write('temp = '); //ask for help fixing this
+    lcd.clear();
+    lcd.setCursor(0, 1);
+    lcd.print('temp = '); //ask for help fixing this
     //put lcd for real time stuff here 
     i=0;
   }
@@ -186,8 +188,9 @@ void error () {
   *porth = *porth & 0xF7; // turn off fan 
   *porte = *porte | 0x40; //turns on red light
 while (mode==3) {
-   lcd.setCursor(1,1);
-   lcd.write ('Water is too low');
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.write ('Water is too low');
   if (on==1){
     mode = 2;
   }
