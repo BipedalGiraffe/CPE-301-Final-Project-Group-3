@@ -94,6 +94,7 @@ URTCLIB_WIRE.begin();
 
 }
 void loop() { 
+rtc.refresh();
 potVal = map(analogRead(A0),0,1024,0,500);
 if (potVal>Pval)
   stepper.step(5);
@@ -149,7 +150,12 @@ void idle (){
   *porth = *porth & 0xF7; //turn off fan
   *porte = *porte | 0x08; //turn on green light 
   char i = 0;
-  //lcd.print(Eviroment.readTemperature);
+  lcd.setCursor(0,0);
+  lcd.print("temp= ");
+  lcd.setCursor(5,0);
+  lcd.print(temp);
+  lcd.setCursor(0,1);
+  lcd.print(time);
   while (mode==2){
   unsigned int waterlvl = adc_read(0);
   unsigned int temp = Environment.readTemperature(2);
